@@ -772,30 +772,99 @@ section {
     border: none;
 }
 
-/* ── FOOTER ── */
+/* ── FOOTER & CRÉDITOS ── */
 footer {
-    background: var(--brown-dk);
-    border-top: 1px solid rgba(212, 133, 122, .15);
-    padding: 2rem 5vw;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  background: var(--brown-dk); 
+  border-top: 1px solid rgba(212,133,122,.15);
+  padding: 2.5rem 5vw 1.5rem;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 1.8rem;
+  text-align: center;
 }
 
-footer p {
-    font-size: .8rem;
-    color: rgba(250, 246, 243, .5);
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
 }
 
-.footer-brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    color: var(--rose-lt);
-    letter-spacing: .05em;
+.footer-credit {
+  position: relative;
+  padding-top: 1rem;
+  width: 100%;
+  max-width: 600px;
 }
 
+.credit-line {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(250,246,243,0.4);
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease;
+}
+
+.credit-line:hover {
+  color: rgba(250,246,243,0.75);
+}
+
+.code-bracket {
+  color: var(--rose-lt);
+  font-weight: 500;
+  font-family: monospace;
+  font-size: 0.9em;
+  letter-spacing: 0;
+}
+
+.dev-name {
+  color: var(--rose-lt);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.dev-name::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--rose);
+  transition: width 0.3s ease;
+}
+
+.dev-name:hover {
+  color: var(--rose);
+  transform: translateY(-1px);
+}
+
+.dev-name:hover::after {
+  width: 100%;
+}
+
+.credit-decoration {
+  margin: 0.8rem auto 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212,133,122,0.3), transparent);
+  border-radius: 2px;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.4; transform: scaleX(1); }
+  50%      { opacity: 0.7; transform: scaleX(1.2); }
+}
+
+@media (max-width: 768px) {
+  footer { padding: 2rem 4vw 1.2rem; }
+  .footer-credit { max-width: 100%; }
+}
 /* ── WHATSAPP FLOAT ── */
 .wa-float {
     position: fixed;
